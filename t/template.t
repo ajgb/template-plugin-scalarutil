@@ -41,7 +41,7 @@ my %setup = (
                 '\\*STDIN=GLOB',
                 '[]=ARRAY',
                 '{}=HASH',
-                'qr/.*/=REGEXP',
+                'qr/.*/='. ( $] < 5.011 ? 'SCALAR' : 'REGEXP' ),
                 'sub{"DUMMY"}=CODE',
             ),
         }
